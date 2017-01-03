@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf expander="minf_2.0">
+<d>
+  <d name="en">
+    <xhtml name="short">Compares the mean response of several analyses over the same region.</xhtml>
+    <d name="parameters">
+      <xhtml name="ROI">Way to average images. It can be with corners (top left-hand and bottom right-hand) or with a mask (binary matrix)</xhtml>
+      <xhtml name="format">Saving format of images. It can be NIFTI-1 Image ('.nii') or gzip compressed NIFTI-1 Image ('.nii.gz')</xhtml>
+      <xhtml name="corner0">The position of the top left-hand corner of the mask (x,y)</xhtml>
+      <xhtml name="corner1">The position of the bottom right-hand corner of the mask (x,y)</xhtml>
+      <xhtml name="model_1">Model choice</xhtml>
+      <xhtml name="data_graph">The data graph path</xhtml>
+    </d>
+    <xhtml name="long">Compares the mean response of several analyses over the same region.
+Each analyse include its model (GLM, BkS or BkSD), its conditions file and its conditions list.
+<p>
+Possibility to average over a rectangular ROI or a binary mask.
+</p></xhtml>
+  </d>
+</d>
+</minf>

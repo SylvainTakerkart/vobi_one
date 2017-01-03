@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf expander="minf_2.0">
+<d>
+  <d name="en">
+    <xhtml name="short">Compares the mean response of one analyse over different regions.</xhtml>
+    <d name="parameters">
+      <xhtml name="analysis_name">The name of the analysis</xhtml>
+      <xhtml name="format">Saving format of images. It can be NIFTI-1 Image ('.nii') or gzip compressed NIFTI-1 Image ('.nii.gz')</xhtml>
+      <xhtml name="conditions_list">A tuple of list of condition which has to be averaged. Exemple : ([5,2]) The files which have for conditions 5 and 2 will be averaged together.</xhtml>
+      <xhtml name="conditions_file">The condition file path</xhtml>
+      <xhtml name="data_graph">The data graph path</xhtml>
+      <xhtml name="model">Model choice</xhtml>
+      <xhtml name="ROI_1">Way to average images. It can be with corners (top left-hand and bottom right-hand) or with a mask (binary matrix)  </xhtml>
+    </d>
+    <xhtml name="long">Compares the mean response of one analyse over different regions.
+Each analyse include its way of average (Rectangular ROI or binary mask).
+<p>
+Possibility to select the model (GLM, BkS or BkSD), the conditions file and the conditions list.
+</p></xhtml>
+  </d>
+</d>
+</minf>

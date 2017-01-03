@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf expander="minf_2.0">
+<d>
+  <d name="en">
+    <xhtml name="short">Diplays NIFTI-1 images</xhtml>
+    <xhtml name="long">Diplays NIFTI-1 and gz compressed NIFTI-1 images using anatomist</xhtml>
+    <d name="parameters">
+      <xhtml name="input">NIFTI-1 or gz compressed NIFTI-1 input image file name</xhtml>
+    </d>
+  </d>
+</d>
+</minf>

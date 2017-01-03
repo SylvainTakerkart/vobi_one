@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf version="1.0">
+
+<xhtml name="en">
+  <h1><i>Vobi One</i>: a processing toolbox for functional optical imaging.</h1>
+    <p>
+    <i>Vobi One</i> is a BrainVISA toolbox entirely dedicated to the processing of functional optical imaging data.
+    It has been designed to facilitate the data processing itself, while bringing good analyses practices to the community, for
+    example thanks to the use of the standard Nifti1.0 format to store data files in a BrainVISA database. <i>Vobi One</i>
+    is also accessible by writing python scripts (as set of which is provided with the toolbox).
+    <br></br><br></br>
+    Two main processing methods are available for now in <i>Vobi One</i>:
+      <ul>
+	<li>the standard method based on divisive normalization to baseline level followed by subtraction to conditions where no stimuli was
+	present (sometimes referred to as "blank subtraction");</li>
+        <li>a recently developed method based on a thorough
+	modeling of all noise sources and a general linear model [1].</li>
+      </ul>
+    
+    </p>
+    <!--
+    <h2>Toolbox components</h2>
+     <h3><a href="bvcategory://vobi_one/Import"><_t_>Import</_t_></a></h3>
+    <p>
+      Routines to convert the raw data files into Nifti files and import them into a BrainVISA database.
+    </p>
+    <h3><a href="bvcategory://vobi_one/Session Pre-Analysis"><_t_>Session Post-Analysis</_t_></a></h3>
+    <p>
+      Processes that need to be run before analyzing all trials in a given session.
+    </p>
+    <h3><a href="bvcategory://vobi_one/Trial Analysis"><_t_>Trial Analysis</_t_></a></h3>
+    <p>
+      The analysis processes themseleves.
+    </p>
+    <h3><a href="bvcategory://vobi_one/Session Post-Analysis"><_t_>Session Pre-Analysis</_t_></a></h3>
+    <p>
+      Post-processing routines, and in particular functions to average results across multiple trials.
+    </p>
+    <h3><a href="bvcategory://vobi_one/Viewers"><_t_>Viewers.</_t_></a></h3>
+    -->
+    <h2>References</h2>
+    <p>
+      [1] Reynaud, A., Takerkart, S., Masson, G. S., Chavane, F. (2011). Linear model decomposition for voltage-sensitive dye imaging signals: Application in awake behaving monkey. <i>NeuroImage</i>, 54(2), 1196-1210.
+      <br></br>
+      [2] Takerkart S., Katz P., Garcia F., Roux S., Reynaud A., Chavane F. Vobi One: a data processing software package for functional optical imaging. <i>Frontiers in Brain Imaging Methods</i>, submitted.
+    </p>
+</xhtml>
+
+</minf>

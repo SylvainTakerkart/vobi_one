@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf expander="minf_2.0">
+<d>
+  <d name="en">
+    <xhtml name="short">Time constant 'tau' and heartbeat frequency estimation.</xhtml>
+    <d name="parameters">
+      <xhtml name="ROI">Way to average images. It can be with corners (left-top and right-bottom) or with a mask (binary matrix)</xhtml>
+      <xhtml name="tau_max">Maximum value of tau variable</xhtml>
+      <xhtml name="format">Saving format of images. It can be NIFTI-1 Image ('.nii') or gzip compressed NIFTI-1 Image ('.nii.gz')</xhtml>
+      <xhtml name="conditions_list">A tuple of list of condition which has to be averaged. Exemple : [5,2] The files which have for condtions 5 and 2 will be averaged together.</xhtml>
+      <xhtml name="corner1">The position of the left-bottom corner of the mask (x,y)</xhtml>
+      <xhtml name="conditions_file">The condition file path</xhtml>
+      <xhtml name="data_graph">The data graph path</xhtml>
+      <xhtml name="corner0">The position of the left-head corner of the mask (x,y)</xhtml>
+    </d>
+    <xhtml name="long">Time constant 'tau' and heartbeat frequency estimation by using a non-linear fit thanks to Nelder-Mead simplex direct search method.
+<p>
+Tau should be between 0s and the maximum value you will choose
+</p>
+<p>
+Heartbeat frequency should be between 0 and 4 Hz
+</p>
+<p>
+Use  <a href="viewer_png.html">Viewer PNG image</a> to display the data graph.
+</p></xhtml>
+  </d>
+</d>
+</minf>

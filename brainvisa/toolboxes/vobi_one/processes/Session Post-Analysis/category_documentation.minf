@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf version="1.0">
+
+<xhtml name="en">
+  <h1>Session Post-Analysis</h1>
+  <p>
+    <p>
+      Before executing theses processes, it is needed to have already apply a model.
+    </p>
+    <h2><a href="bvprocess://average_region"><bvProcessName name="average_region"/></a></h2>
+    <p>
+      This process average data over a Region Of Interest which can be a Rectangular ROI (from coordinates) or a Binary Mask (from matrix)
+    </p>
+    <p>
+	Use <a href="../../../viewer_aver_region.html">Viewer Averaged Region</a> to display the averaged time series.
+     </p>
+    <h2><a href="bvprocess://average_trials"><bvProcessName name="average_trials"/></a></h2>
+    <p>
+      Averages a list of images using the condition file created using <a href="../../../cond_file.html">Create Conditions File</a>.
+    </p>
+    <h2><a href="bvprocess://comparison_of_analyses"><bvProcessName name="comparison_of_analyses"/></a></h2>
+    <p>
+      Compares the mean response of several analyses over the same region.
+    </p>
+    <p>
+      Each analyse include its model (GLM, BkS or BkSD), its conditions file and its conditions list. Possibility to average over a rectangular ROI or a binary mask.
+    </p>
+    <h2><a href="bvprocess://comparison_of_rois"><bvProcessName name="comparison_of_rois"/></a></h2>
+    <p>
+      Compares the mean response of one analyse over different regions.
+    </p>
+    <p>
+      Each analyse include its way of average (Rectangular ROI or binary mask). Possibility to select the model (GLM, BkS or BkSD), the conditions file and the conditions list.
+    </p>
+    <h2><a href="bvprocess://durbin_watson_test"><bvProcessName name="durbin_watson_test"/></a></h2>
+    <p>
+      Apply a Durbin-Watson test on residuals to verify their independancy.
+    </p>
+    <h2><a href="bvprocess://visualization_of_trials_variability"><bvProcessName name="visualization_of_trials_variability"/></a></h2>
+    <p>
+      Calculates means responses of only one analyse showing all trials in background too.
+    </p>
+  </p>
+</xhtml>
+
+</minf>

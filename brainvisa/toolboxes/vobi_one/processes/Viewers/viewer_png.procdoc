@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf expander="minf_2.0">
+<d>
+  <d name="en">
+    <xhtml name="short">Displays the PNG image in a Qt window.</xhtml>
+    <d name="parameters">
+      <xhtml name="input">The data graph path</xhtml>
+    </d>
+    <xhtml name="long">Displays the PNG image, created by using the matplotlib library, in a Qt window. Theses data graphs are placed in accordance with BrainVISA ontology</xhtml>
+  </d>
+</d>
+</minf>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf expander="minf_2.0">
+<d>
+  <d name="en">
+    <xhtml name="short">Denoising of input signal using the Linear Model</xhtml>
+    <d name="parameters">
+      <xhtml name="betas">The path where to save betas</xhtml>
+      <xhtml name="denoised">The path where to save the denoised image</xhtml>
+      <xhtml name="data">The path of the external file, containing the raw NIFTI image</xhtml>
+      <xhtml name="glm">The path of the Linear Model</xhtml>
+      <xhtml name="residuals">The path where to save residual noise</xhtml>
+      <xhtml name="format">Saving format of images. It can be NIFTI-1 Image ('.nii') or gzip compressed NIFTI-1 Image ('.nii.gz')</xhtml>
+    </d>
+    <xhtml name="long">Estimation and denoising of input signal using the Linear Model. Saves as NIFTI-1 image or gz compressed NIFTI-1 image :
+      <ul>
+        <li>The denoised image</li>
+	<li>The betas</li>
+        <li>The residual noise</li>
+      </ul></xhtml>
+  </d>
+</d>
+</minf>

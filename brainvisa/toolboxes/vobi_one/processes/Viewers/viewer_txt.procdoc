@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf expander="minf_2.0">
+<d>
+  <d name="en">
+    <xhtml name="short">Displays the conditions file</xhtml>
+    <d name="parameters">
+      <xhtml name="input">The condition file path</xhtml>
+    </d>
+    <xhtml name="long">Displays the conditions file, created using <a href="bvprocess://cond_file"><bvProcessName name="cond_file"/></a></xhtml>
+  </d>
+</d>
+</minf>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf expander="minf_2.0">
+<d>
+  <d name="en">
+    <xhtml name="short">Spectral analysis with visualization.</xhtml>
+    <d name="parameters">
+      <xhtml name="ROI">Way to average images over a region of interest. It can be with corners (top left-hand and bottom right-hand) or with a mask (binary matrix)</xhtml>
+      <xhtml name="format">Saving format of images. It can be NIFTI-1 Image ('.nii') or gzip compressed NIFTI-1 Image ('.nii.gz')</xhtml>
+      <xhtml name="conditions_list">A list of condition which has to be averaged. Exemple : ([0,15]) The files which have for condtions 0 and 15 will be averaged together.</xhtml>
+      <xhtml name="corner1">The position of the bottom right-hand corner of the mask (x,y)</xhtml>
+      <xhtml name="conditions_file">The condition file path</xhtml>
+      <xhtml name="data_graph">The data graph path</xhtml>
+      <xhtml name="corner0">The position of the top left-hand corner of the mask (x,y)</xhtml>
+    </d>
+    <xhtml name="long">Spectral analysis with visualization. Allow to detect frequencies of spikes by calculating the spectrum of each blank file and meaning all this spectrums.
+<p>
+Use  <a href="viewer_png.html">Viewer PNG image</a> to display the data graph.
+</p></xhtml>
+  </d>
+</d>
+</minf>

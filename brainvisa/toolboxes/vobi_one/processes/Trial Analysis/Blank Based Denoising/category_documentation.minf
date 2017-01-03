@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf version="1.0">
+
+<xhtml name="en">
+  <h1>Blank Based denoing</h1>
+  <p>
+    Trial-level denoising processes, using the BkSD method.
+      <p>
+	Use <a href="bvprocess://average_trials"><bvProcessName name="average_trials"/></a> to average the blank datas.
+      </p>
+      <h2><a href="bvprocess://frame0_substraction"><bvProcessName name="frame0_substraction"/></a></h2>
+      <p>
+	The frame0 substraction process. Substracts the first frames to the whole data.
+      </p>
+      <h2><a href="bvprocess://frame0_division"><bvProcessName name="frame0_division"/></a></h2>
+      <p>
+	The frame0 division process. Divides the first frames to the whole data.
+      </p>
+      <h2><a href="bvprocess://linear_detrend"><bvProcessName name="linear_detrend"/></a></h2>
+      <p>
+	The linear detrending. Divides the whole time series by an affine function
+      </p>
+      <h2><a href="bvprocess://blank_substraction"><bvProcessName name="blank_substraction"/></a></h2>
+      <p>
+	The blank substraction. Substracts the averaged blank datas to image.
+      </p>
+      <p>
+	Use <a href="bvprocess://average_trials"><bvProcessName name="average_trials"/></a> to average the blank datas.
+      </p>
+      <h2><a href="bvprocess://blank_division"><bvProcessName name="blank_division"/></a></h2>
+      <p>
+	The blank division. Divides the averaged blank datas to image.
+      </p>
+      <p>
+	Use <a href="bvprocess://average_trials"><bvProcessName name="average_trials"/></a> to average the blank datas.
+      </p>
+      <h2><a href="bvprocess://blankbased_pipeline"><bvProcessName name="blankbased_pipeline"/></a></h2>
+      <p>
+	Pipeline containings the whole BkSD processes :
+	<ul>
+	  <li>Frame0 Based processes<ul>
+	    <li><a href="bvprocess://frame0_division"><bvProcessName name="frame0_division"/></a></li>
+	    <li><a href="bvprocess://frame0_division"><bvProcessName name="frame0_division"/></a></li>
+	  </ul></li>
+	  <li><a href="bvprocess://linear_detrend"><bvProcessName name="linear_detrend"/></a></li>
+	  <li>Blank Based processes<ul>
+	    <li><a href="bvprocess://blank_substraction"><bvProcessName name="blank_substraction"/></a></li>
+	    <li><a href="bvprocess://blank_division"><bvProcessName name="blank_division"/></a></li>
+	  </ul></li>
+	  </ul>
+      </p>
+  </p>
+</xhtml>
+
+</minf>

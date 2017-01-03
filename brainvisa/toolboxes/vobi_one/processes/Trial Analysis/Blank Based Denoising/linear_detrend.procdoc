@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf expander="minf_2.0">
+<d>
+  <d name="en">
+    <xhtml name="short">The linear detrending</xhtml>
+    <d name="parameters">
+      <xhtml name="format">Saving format of images. It can be NIFTI-1 Image ('.nii') or gzip compressed NIFTI-1 Image ('.nii.gz')</xhtml>
+      <xhtml name="detrend_data">The path of the image after linear detrend</xhtml>
+      <xhtml name="frame1">The datas at the end of a time serie used to detrend the global time serie (time1,time2)</xhtml>
+      <xhtml name="frame0">The datas at the begin of a time serie used to detrend the global time serie (time1,time2)</xhtml>
+      <xhtml name="data">The input image</xhtml>
+      <xhtml name="firstlevel_analysis">Trial-level directory</xhtml>
+    </d>
+    <xhtml name="long">The linear detrending. Divides the whole time series by an affine function</xhtml>
+  </d>
+</d>
+</minf>

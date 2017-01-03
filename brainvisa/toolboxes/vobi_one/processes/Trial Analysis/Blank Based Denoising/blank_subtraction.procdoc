@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf expander="minf_2.0">
+<d>
+  <d name="en">
+    <xhtml name="short">The blank substraction</xhtml>
+    <d name="parameters">
+      <xhtml name="bks_data">The path of the image after blank substraction</xhtml>
+      <xhtml name="data">Input image path</xhtml>
+      <xhtml name="average_file">The averaged raw image</xhtml>
+      <xhtml name="firstlevel_analysis">Trial-level directory</xhtml>
+      <xhtml name="format">Saving format of images. It can be NIFTI-1 Image ('.nii') or gzip compressed NIFTI-1 Image ('.nii.gz')</xhtml>
+    </d>
+    <xhtml name="long">The blank substraction. Substracts the averaged blank datas to image.</xhtml>
+  </d>
+</d>
+</minf>

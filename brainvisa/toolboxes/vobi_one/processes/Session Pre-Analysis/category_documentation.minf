@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf version="1.0">
+
+<xhtml name="en">
+  <h1>Session Pre-Analysis</h1>
+    <p>
+    <p>
+      Contains session-level processes.
+      <p>
+	Except for <a href="../../../construct_model.html">Construct Model</a>, those processes has to be launch after importing the whole wanted datas.
+      </p>
+    </p>
+    <h2><a href="../../../cond_file.html">Create Conditions File</a></h2>
+    <p>
+      Creates a condition file, containing the paths of datas and their conditions of experimentation. It is read to perform the session-level processes
+    </p>
+    <p>  
+      Use <a href="../../../viewer_txt.html">Viewer Text File</a> to display the conditions file.
+    </p>
+    <h2><a href="../../../construct_model.html">Construct Model</a></h2>
+    <p>
+      Creates the matrix of regressors.
+    </p>
+    <p>
+      Use <a href="../../../viewer_lm.html">Viewer Linear Model</a> to display the Linear Model.
+    </p>
+    <h2><a href="../../../spectral_analysis.html">Spectral Analysis</a></h2>
+    <p>
+      Spectral analysis with visualization. Allow to detect frequencies of spikes by calculating the spectrum of each blank file and meaning all this spectrums.
+    </p>
+    <p>
+      Use <a href="../../../viewer_png.html">Viewer PNG Image</a> to display the data graph.
+    </p>
+    <h2><a href="../../../tau_and_fh_estimation.html">Tau and Heartbeat Frequency Estimation</a></h2>
+    <p>
+      Time constant 'tau' and heartbeat frequency estimation by using a non-linear fit thanks to Nelder-Mead simplex direct search method.
+    </p>
+    <p>
+      Use <a href="../../../viewer_png.html">Viewer PNG Image</a> to display the data graph.
+    </p>
+  </p>
+</xhtml>
+
+</minf>

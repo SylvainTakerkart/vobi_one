@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf expander="minf_2.0">
+<d>
+  <d name="en">
+    <xhtml name="short">BksD Pipeline</xhtml>
+    <d name="parameters">
+      <xhtml name="input">The input image file name</xhtml>
+      <xhtml name="output">Output image after BkSD denoising</xhtml>
+      <xhtml name="firstlevel_analysis">Trial-level directory</xhtml>
+      <xhtml name="format">Saving format of images. It can be NIFTI-1 Image ('.nii') or gzip compressed NIFTI-1 Image ('.nii.gz')</xhtml>
+    </d>
+    <xhtml name="long">Pipeline containings the whole BkSD processes :
+	<ul>
+	  <li>Frame0-based processes<ul>
+	    <li><a href="bvprocess://frame0_division"><bvProcessName name="frame0_division"/></a></li>
+	    <li><a href="bvprocess://frame0_division"><bvProcessName name="frame0_division"/></a></li>
+	  </ul></li>
+	  <li><a href="bvprocess://linear_detrend"><bvProcessName name="linear_detrend"/></a></li>
+	  <li>Blank-based processes<ul>
+	    <li><a href="bvprocess://blank_substraction"><bvProcessName name="blank_substraction"/></a></li>
+	    <li><a href="bvprocess://blank_division"><bvProcessName name="blank_division"/></a></li>
+	  </ul></li>
+	  </ul></xhtml>
+  </d>
+</d>
+</minf>

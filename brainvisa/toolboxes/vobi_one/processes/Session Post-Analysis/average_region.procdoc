@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf expander="minf_2.0">
+<d>
+  <d name="en">
+    <xhtml name="short">Region of interest averaging</xhtml>
+    <d name="parameters">
+      <xhtml name="corner0">The position of the left-head coin of the mask (x,y)</xhtml>
+      <xhtml name="corner1">The position of the left-bottom coin of the mask (x,y)</xhtml>
+      <xhtml name="output_mask">The path of the created mask</xhtml>
+      <xhtml name="input_mask">The path of an existing mask</xhtml>
+      <xhtml name="output">The path of the time series (a txt file)</xhtml>
+      <xhtml name="input">The path of the image to average</xhtml>
+    </d>
+    <xhtml name="long">Averages a region of interest from an averaged image created using <a href="bvprocess://average_trials"><bvProcessName name="average_trials"/></a>.
+ Use <a href="bvprocess://viewer_aver_region"><bvProcessName name="viewer_aver_region"/></a> to display the averaged time series.</xhtml>
+  </d>
+</d>
+</minf>

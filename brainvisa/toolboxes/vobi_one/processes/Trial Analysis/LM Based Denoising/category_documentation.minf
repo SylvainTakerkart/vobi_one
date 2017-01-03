@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf version="1.0">
+
+<xhtml name="en">
+  <h1>LM Based denoising</h1>
+  <p>
+    Trial-level denoising processes, using the Linear Model method.
+      <p>
+	<ul>
+	  <li>Use <a href="bvprocess://construct_model"><bvProcessName name="construct_model"/></a> to create the Linear Model.</li>
+	  <li>Use <a href="bvprocess://apply_model"><bvProcessName name="apply_model"/></a> to apply the Linear Model.</li>
+	</ul>
+      </p>
+  </p>
+</xhtml>
+
+</minf>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf expander="minf_2.0">
+<d>
+  <d name="en">
+    <xhtml name="short">Creates the Linear Model</xhtml>
+    <d name="parameters">
+      <xhtml name="alpha_min">The time-range parameters (minima)</xhtml>
+      <xhtml name="tau">The time constant of dye bleaching</xhtml>
+      <xhtml name="parameters">In case of the parameters are loaded from an existing file. It is the path of this file</xhtml>
+      <xhtml name="frequencies">The frequencies of environmental and physiological noises (a list)</xhtml>
+      <xhtml name="L">The number of regressors kept to create the Linear Model</xhtml>
+      <xhtml name="fourier_orders">The fourier orders of environmental and physiological noises (a list, must have the same lenght as point 3)</xhtml>
+      <xhtml name="sampling_frequency">The sampling frequency</xhtml>
+      <xhtml name="output">The path where is saved the model definition</xhtml>
+      <xhtml name="trial_duration">The trial duration</xhtml>
+      <xhtml name="alpha_max">The time-range parameters (maxima, must have the same lenght as point 6)</xhtml>
+      <xhtml name="parameters_file">The path where are saved the parameters</xhtml>
+    </d>
+    <xhtml name="long">Creates the matrix of regressors. Saves the linear model in a txt file and the parameters in a Numpy Dump File.
+ Use <a href="bvprocess://viewer_lm"><bvProcessName name="viewer_lm"/></a> to display the Linear Model.></xhtml>
+  </d>
+</d>
+</minf>

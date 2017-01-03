@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf expander="minf_2.0">
+<d>
+  <d name="en">
+    <xhtml name="short">Linear Model vizualization</xhtml>
+    <d name="parameters">
+      <xhtml name="input">Text file containing the Linear Model matrix</xhtml>
+    </d>
+    <xhtml name="long">Displays the Linear Model and the dye bleaching, created using <a href="bvprocess://construct_model"><bvProcessName name="construct_model"/></a></xhtml>
+  </d>
+</d>
+</minf>

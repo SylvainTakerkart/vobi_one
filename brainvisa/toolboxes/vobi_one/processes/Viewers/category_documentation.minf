@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf version="1.0">
+
+<xhtml name="en">
+  <h1>Viewers</h1>
+  <p>
+    <p>
+      Contains viewers process, which allow user to visualize data.
+    </p>
+    <h2><a href="bvprocess://viewer_aver_region"><bvProcessName name="viewer_aver_region"/></a></h2>
+    <p>
+      Displays the averaged region of interest time series, created using <a href="bvprocess://average_region"><bvProcessName name="average_region"/></a>, thanks to anatomist.
+    </p>
+    <h2><a href="bvprocess://viewer_lm"><bvProcessName name="viewer_lm"/></a></h2>
+    <p>
+      Displays the dye bleaching, the main components and the example-shapes responses created using <a href="bvprocess://construct_model"><bvProcessName name="construct_model"/></a>.
+    </p>
+    <h2><a href="bvprocess://viewer_nii"><bvProcessName name="viewer_nii"/></a></h2>
+    <p>
+      Diplays NIFTI-1 and gz compressed NIFTI-1 images using anatomist.
+    </p>
+    <h2><a href="bvprocess://viewer_png"><bvProcessName name="viewer_png"/></a></h2>
+    <p>
+      Displays a PNG image in a Qt Window.
+    </p>
+    <h2><a href="bvprocess://viewer_txt"><bvProcessName name="viewer_txt"/></a></h2>
+    <p>
+      Displays the conditions file, created using <a href="bvprocess://cond_file"><bvProcessName name="cond_file"/></a>.
+    </p>
+  </p>
+</xhtml>
+
+</minf>

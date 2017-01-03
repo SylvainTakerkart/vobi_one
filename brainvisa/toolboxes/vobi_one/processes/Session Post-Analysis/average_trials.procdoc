@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf expander="minf_2.0">
+<d>
+  <d name="en">
+    <xhtml name="short">Averages a list of images</xhtml>
+    <d name="parameters">
+      <xhtml name="secondlevel_analysis">Session-level directory</xhtml>
+      <xhtml name="conditions_list">A tuple of list of condition which has to be averaged. Exemple : ([5,2],[4,]) The files which have for condtions 5 and 2 will be averaged together, the files which have for condition 4 will be averaged together.</xhtml>
+      <xhtml name="suffixe">The suffixe of images' filename. Gives the processing algorithmes applied on this image. It can be :
+	<ul>
+	  <li>'_f0d' for frame0 division</li>
+	  <li>'_f0s' for frame0 substraction</li>
+	  <li>'_d' for linear detrend</li>
+	  <li>'_bks' for blank substraction</li>
+	  <li> '_bkd' for blank division</li>
+	</ul></xhtml>
+      <xhtml name="conditions_file">The condition file path</xhtml>
+      <xhtml name="analysis_type">Analysis name : 
+	<ul>
+	  <li>Raw</li>
+	  <li>Glm-based</li>
+	  <li>Blank-based</li>
+	</ul></xhtml>
+      <xhtml name="format">Saving format of images. It can be NIFTI-1 Image ('.nii') or gzip compressed NIFTI-1 Image ('.nii.gz')</xhtml>
+    </d>
+    <xhtml name="long">Averages a list of images using the condition file created using <a href="bvprocess://cond_file"><bvProcessName name="cond_file"/></a>. It is first thing to do with blanks datas before using <a href="bvcategory://oidata_analysis/trial_analysis/blankbased_denoising"><_t_>BkSD method</_t_></a></xhtml>
+  </d>
+</d>
+</minf>

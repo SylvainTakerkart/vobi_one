@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf version="1.0">
+
+<xhtml name="en">
+  <h1>Import</h1>
+  <p>
+    <p>
+      Before processing data, it is recommended to import it in a BrainVISA database.
+    </p>
+    <h2><a href="bvprocess://import_blk_file"><bvProcessName name="import_blk_file"/></a></h2>
+    <p>
+      This process converts the BLK file created by acquisition system to a NIFTI-1 file and import it in BrainVISA database.
+    </p>
+    <h2><a href="bvprocess://import_rsd_file"><bvProcessName name="import_rsd_file"/></a></h2>
+    <p>
+      This process converts the RSD file created by acquisition system to a NIFTI-1 file and import it in BrainVISA database.
+    </p>
+  </p>
+</xhtml>
+
+</minf>

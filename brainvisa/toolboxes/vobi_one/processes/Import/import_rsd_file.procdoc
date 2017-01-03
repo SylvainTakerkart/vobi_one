@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf expander="minf_2.0">
+<d>
+  <d name="en">
+    <xhtml name="short">RSD file import</xhtml>
+    <d name="parameters">
+      <xhtml name="input">RSD file name</xhtml>
+      <xhtml name="format">Saving format of images. It can be NIFTI-1 Image ('.nii') or gzip compressed NIFTI-1 Image ('.nii.gz')</xhtml>
+      <xhtml name="year">The year</xhtml>
+      <xhtml name="binning_size">Time averaging</xhtml>
+      <xhtml name="output">Output NIFTI-1 or gz compressed NIFTI-1 file name</xhtml>
+      <xhtml name="period">The acquisition period</xhtml>
+      <xhtml name="subject">The subject's name directory</xhtml>
+    </d>
+    <xhtml name="long">This process converts the RSD file created by intrincsic imaging acquisition system to a NIFTI-1 file and import it in BrainVISA database.</xhtml>
+  </d>
+</d>
+</minf>

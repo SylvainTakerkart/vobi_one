@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf expander="minf_2.0">
+<d>
+  <d name="en">
+    <xhtml name="short">The frame0 substraction process.</xhtml>
+    <d name="parameters">
+      <xhtml name="frame0">The datas of a time serie used to substract the global time serie (time1,time2)</xhtml>
+      <xhtml name="data">Input image path</xhtml>
+      <xhtml name="f0_data">The path of the image after frame0 substraction</xhtml>
+      <xhtml name="firstlevel_analysis">Trial-level directory</xhtml>
+      <xhtml name="format">Saving format of images. It can be NIFTI-1 Image ('.nii') or gzip compressed NIFTI-1 Image ('.nii.gz')</xhtml>
+    </d>
+    <xhtml name="long">The frame0 substraction process. Substracts the first frames to the whole data</xhtml>
+  </d>
+</d>
+</minf>

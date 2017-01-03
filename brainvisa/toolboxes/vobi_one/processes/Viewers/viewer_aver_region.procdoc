@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf expander="minf_2.0">
+<d>
+  <d name="en">
+    <xhtml name="short">Displays the averaged region of interest</xhtml>
+    <d name="parameters">
+      <xhtml name="input">The path of the time series (a txt file)</xhtml>
+    </d>
+    <xhtml name="long">Displays the averaged region of interest time series, created using <a href="bvprocess://average_region"><bvProcessName name="average_region"/></a>.</xhtml>
+  </d>
+</d>
+</minf>

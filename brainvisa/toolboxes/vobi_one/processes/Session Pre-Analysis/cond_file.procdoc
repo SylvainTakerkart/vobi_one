@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf expander="minf_2.0">
+<d>
+  <d name="en">
+    <xhtml name="short">Creates a condition file</xhtml>
+    <d name="parameters">
+      <xhtml name="conditions_file">The condition file path</xhtml>
+    </d>
+    <xhtml name="long">Creates a condition file, containing the paths of datas and their conditions of experimentation. It is read to perform the session-level processes.
+ Use  <a href="viewer_txt.html">Viewer Text File</a> to display the conditions file.</xhtml>
+  </d>
+</d>
+</minf>

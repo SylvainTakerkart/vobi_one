@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<minf version="1.0">
+
+<xhtml name="en">
+  <h1>Trial Analysis</h1>
+  <p>
+    <p>
+      Contains trial-level process.
+    </p>
+    <h2><a href="bvcategory://vobi_one/trial analysis/lmbased_denoising"><_t_>LM Based Denoising</_t_></a></h2>
+      <p>
+	Trial-level denoising processes, using the Linear Model method.
+	</p>
+      <p>
+	Use <a href="bvprocess://construct_model"><bvProcessName name="construct_model"/></a> to create the Linear Model.
+      </p>
+     <h2><a href="bvcategory://vobi_one/trial analysis/blankbased_denoising"><_t_>Blank Based Denoising</_t_></a></h2>
+       <p>
+	Trial-level denoising processes, using the BkSD method.
+	</p>
+      <p>
+	Use <a href="bvprocess://average_trials"><bvProcessName name="average_trials"/></a> to averages blanks trials.
+      </p>
+  </p>
+</xhtml>
+
+</minf>
