@@ -1,0 +1,78 @@
+In this tutorial, we will use the provided example scripts to run a similar analysis as the one that was performed in Chapter~\ref{chapter:tuto2}.
+The demo scripts are available in \texttt{/rawdatadirectory/vobi\_one\_demo\_data/example\_scripts}.
+To run a script, just follow these instructions (which are available in the documentation of the script, at the beginning of the file):
+
+\begin{itemize}
+   \item copy the script in the directory of your choice and go to this directory
+   \item change the parameters in the "PARAMETERS TO BE DEFINED BY THE USER" section of the script
+   \item launch BrainVISA in shell mode from the unix prompt by typing \texttt{/mydirectory/brainvisa-4.3.0/bin/brainvisa --noMainWindow --shell}
+   \item run this script in the BrainVISA python shell by typing \texttt{\%run scriptname.py}
+\end{itemize}
+
+
+
+\section{Running \texttt{script0\_import\_and\_preanalysis.py}}
+
+This script imports some raw data in .blk format, and estimates noise
+noise parameters from blank trials.
+
+It successively calls four Vobi One processes:
+\begin{itemize}
+  \item Import / Import BLK File
+  \item Session Pre-analysis / Create Conditions File
+  \item Session Pre-analysis / Spectral analysis
+  \item Session Pre-analysis / Tau and heartbeat frequency estimation
+\end{itemize}
+Finally, it displays the graphs created by the two last steps
+
+At this point, you already know what the first two processes do. The \textit{Spectral analysis} process helps you identify peaks in the the Fourier spectrum of the timeseries that are induced by noise-related oscillatory components present in the raw signal.
+The \textit{Tau and heartbeat frequency estimation} allows estimating the rate of the exponential decay in the timeseries (dye bleaching), as well
+as the strongest sinusoıdal component present in the signal (often caused by the heart beat, and not visible on the power spectrum because at a very low frequency).
+These two processes produces graphs from which you can extract noise parameters that will be use in the construction of the linear model in the next step.
+
+You need to edit the section of the script called "PARAMETERS TO BE DEFINED BY THE USER", and in particular the locations of the raw .blk files and the BrainVISA database root directory.
+All other parameters are customizable. In particular, it is important to give meaningful names to the \textit{protocol} and \textit{subject}, and adequately use the binning parameters to optimize disk usage.
+Once this is done, just type \texttt{\%run script0\_import\_and\_preanalysis.py} in the BrainVISA python shell to launch the execution of the script.
+
+
+\section{Running \texttt{script1\_estimate\_linearmodel.py}}
+
+This script starts by constructing the design matrix of the model itself and then it fits the model on all imported trials.
+
+It successively calls two Vobi One processes:
+\begin{itemize}
+  \item Session Pre-analysis / Construct model
+  \item Trial Analysis / LM Based Denoising / Apply Linear Model
+\end{itemize}
+
+Again, you need to edit the section of the script called "PARAMETERS TO BE DEFINED BY THE USER", filling in the same parameters as with the previous script. Several other parameters need to be chosen, like the \textit{analysis\_name} (for which it is, once again, important to give a meaningful name). After that, the \textit{param} structure defines all the regressors that will be included in the design matrix of the linear model, as described in Chapter~\ref{chapter:tuto1}. In particular:
+\begin{itemize}
+  \item the figure produced by the process \textit{Tau and heartbeat frequency estimation} suggests a value for $Tau$, as well as the heartbeat frequency $F_h$ that you can enter in the list of frequencies; here we chose $tau = 0.7$ and $F_h = 2.0Hz$;
+  \item the figure produced by the process \textit{Spectral analysis} displays a list of frequencies for which there is a peak in the spectrum; you can include the largest of them; here, we chose to include $10Hz$, $28Hz$, $41Hz$ and $50Hz$.
+\end{itemize}
+The list of orders (here all at 1) is the number of harmonics you include in the Fourier series that models the periodic component for each frequency. You can increase it if you think the contribution of this frequency is not purely sinusoidal.
+
+Finally, a set of eight $\alpha$ parameters define the shape of the neural response $r(t)$ as given by:
+
+\begin{equation*}
+ r(t) = \left\{\begin{array}{ll}
+0 & \text{if } t \leq \alpha_1,\\
+\frac{\alpha_7}{2} ( \cos(\pi \frac{t-\alpha_1}{\alpha_2}) -1 ) & \text{if } \alpha_1 < t \leq \alpha_1 + \alpha_2,\\
+\frac{1 - \alpha_7}{2} - \frac{1 + \alpha_7}{2} \cos(\pi \frac{t-\alpha_1 - \alpha_2}{\alpha_3}) & \text{if } \alpha_1 + \alpha_2 < t \leq \alpha_1 + \alpha_2 + \alpha_3,\\
+1 & \text{if } \alpha_1 + \alpha_2  + \alpha_3< t \leq \alpha_1 + \alpha_2 + \alpha_3 + \alpha_4,\\
+\frac{1 - \alpha_8}{2} + \frac{1 + \alpha_8}{2} \cos(\pi \frac{t-\alpha_1 - \alpha_2 - \alpha_3 - \alpha_4}{\alpha_5}) & \text{if } \alpha_1 + \alpha_2 + \alpha_3 + \alpha_4< t \leq \alpha_1 + \alpha_2 + \alpha_3 + \alpha_4 + \alpha_5,\\
+- \frac{\alpha_8}{2} ( 1 + \cos(\pi \frac{t-\alpha_1 - \alpha_2 - \alpha_3 - \alpha_4 - \alpha_5}{\alpha_6})) & \text{if } \alpha_1 + \alpha_2 + \alpha_3 + \alpha_4 + \alpha_5 < t \leq \alpha_1 + \alpha_2 + \alpha_3 + \alpha_4 + \alpha_5 + \alpha_6,\\
+0 & \text{if } t > \alpha_1 + \alpha_2 + \alpha_3 + \alpha_4 + \alpha_5 + \alpha_6
+\end{array}\right.
+\end{equation*}
+The first six $\alpha$s are timing parameters (or lags), and the last two are relative amplitude values. The shape model is illustrated on Fig.~\ref{fig:shape}.
+
+You have to specify the minimum and maximum values for each $\alpha$ to define the range of shapes that can be taken by the neural response.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=12cm]{figs/response_shape.png}
+\caption{The model of the neural response shape. By varying the parameters, one can obtain a wide variety of shapes.}
+\label{fig:shape}
+\end{center}
+\end{figure}

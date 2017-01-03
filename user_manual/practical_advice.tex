@@ -1,0 +1,70 @@
+In this section, we give practical recommandations on how to best use {\em Vobi One} and additional information that could be useful. These recommandations come from the way we have been using it locally.
+
+
+\section{Naming conventions of .blk and .rsd files}
+
+To import files in .blk or .rsd format into {\em Vobi One}, their names has to respect the following conventions:
+
+\begin{itemize}
+  \item a .blk file needs to be called like \texttt{tcXXDDMMYY??????\_eEEbTTT.blk}
+  \item a .rsd file needs to be called like \texttt{stmXX-MMDD-TTT(?).rsd}
+\end{itemize}
+
+where:
+\begin{itemize}
+  \item XX is a code number for the experimental condition (type of stimulus for this trial);
+  \item the date is given with YY (year), MM (month), DD (day); note that the year is not present in the name of .rsd file, and will be asked in the import process;
+  \item EE is the experience number conducted at that date (not present in .rsd files; will be set to 01);
+  \item TTT is the trial number (which can also be encoded on four digits, TTTT, thus supporting at most 9999 trials per session date);
+  \item ? can be any character (they are unused).
+\end{itemize}
+
+If your raw files do not follow this convention, the easiest solution is to rename them before trying to import them. In all cases, the imported Nifti file name will be \texttt{sYYMMDD\_eEE\_tTTTT\_cXX.nii}. 
+
+\section{Orders of regressors for a linear model}
+
+When running a multiple regression, several regressors are included in a design matrix $X$, which is stored in the session and trial directories in a file called \texttt{glm.txt}. The matrix has $N$ lines, where $N$ is the number of regressors, and $T$ columns, where $T$ is the length of the imported timeseries (i.e after a potential temporal binning). Here is the order of the regressors:
+
+\begin{itemize}
+  \item the first regressor has a constant one value (it accounts for the mean of the timeseries);
+  \item after that are the oscillatory noise components modelled as Fourier series (each consecutive pair of line contains a sinus and cosinus components, at a given fondamental frequency, and for a given harmonics order; those are specified when constructing the model);
+  \item the next one (if present) is the decaying exponential with time constant $Tau$ (it $Tau$ was set to zero when constructing the model, this regressor does not exist);
+  \item finally, the last $L$ regressors are the ones that model the neural response.
+\end{itemize}
+
+When the linear model has been estimated, you will find a file called \texttt{sYYMMDD\_eEE\_tTTTT\_cXX\_betas.nii} in the trial directory. This file contains the $N$ spatial maps of $\beta$ weights that are the results of the model fit at each pixel. The order of these maps follows the same order as the regressors in the \texttt{glm.txt} file.
+
+\section{Using compressed or uncompressed Nifti files}
+
+The choice here is between:
+\begin{itemize}
+  \item faster computation but higher disk usage with uncompressed files, and
+  \item slower computation and lower disk usage with compressed files.
+\end{itemize}
+
+
+Here, our advice is to use uncompressed Nifti files when setting up an analysis and testing it on a very limited number of files. Because you are using a small number of files, the extra disk space taken will not be too large. And at this point, you probably are at a stage where you work in an interactive way, waiting for the result to be computed, so you want to optimize the computational time and thus avoid the extra compression/uncompression time.
+
+Once all your parameter choices have been finalized, you can launch your imports and analyses on a very large number of files using compressed files. The computation will probably last for several hours, and the extra time used to compress/uncompress the files will not be very important. However, seeing the large number of files you probably want to process, it is important to minimize the disk usage, hence the use of compressed Nifti files.
+
+\section{Using scripts vs. using the GUIs}
+
+Although the iterate capability of BrainVISA allows setting up loops over several files through the user interface, it can become difficult to use when working with a very large number of files (several hundreds or more).
+It then becomes almost necessary to use scripts for the operations that need to be repeated over each trial. These operations notably include the importing steps and the trial analysis processes (linear model or standard blank subtraction).
+
+For all other operations (and notably all the post-processing visualization operation), it is possible to run them both through the GUI or by writing scripts (although it can sometimes be more convenient to use the GUI).
+
+You can therefore settle in a working mode where you switch back and forth between using the GUI or scripts. In that case, every time you have run one or several scripts and you want to go to the GUI for the next opration, it is necessary to update the database in the GUI before running anything else. For this, select the \textit{Data Managmenet} toolbox in the left panel and run the \textit{Update Databases} process.
+
+\section{Importing other data formats}
+
+If you have data that is not in formats currently supported by {\em Vobi One}, you will need to develop a new importing routine for this format. We here list the name of the files and corresponding functions that will need to be added or modified, in a hierarchical manner
+\begin{itemize}
+        \item \texttt{brainvisa/toolboxes/vobi\_one/processes/Import/import\_xxx\_file.py}; this is the process of the BrainVISA toolbox itself, which defines the user interface for this process; most of the code for a new importer should be copy-pasted from existing ones; 
+        \item \texttt{lib/python2.5/site-packages/oidata/oitrial\_processes.py}, function \texttt{import\_external\_data\_process}; this function is the generic function called by all Importing processes; this is where the file name convention for each format is defined
+        \item \texttt{lib/python2.5/site-packages/oidata/oitrial.py}, function \texttt{load\_external\_file}; this function is called by the previous one; it basically is a switch on the data format, and it instanciates an object of the corresponding class and read the data through the corresponding method;
+        \item \texttt{lib/python2.5/site-packages/oidata/xxx\_file.py}; this file defines a class for the corresponding data format; this class should implement a few methods (see for instance rsd\_file.py for an example), among those one of them reads the header information to read the metadata, one of the reads the actual data, and another shapes the data into the correct configuration to be stored into a Nifti object.
+\end{itemize}
+
+We are of course available to help you with implementing any new Importer (int-support-vobione[at]univ-amu.fr).
+

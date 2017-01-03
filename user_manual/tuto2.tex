@@ -1,0 +1,90 @@
+The {\em iterate} capability of BrainVISA makes it possible to repeat the same operation on numerous files.
+This tutorial aims at demonstrating how to use it by i) importing all the files of a given session, and ii) running the same linear model on these trials.
+In all {\em processes}, the \textit{iterate} button is present next to the \textit{run} button. In order to use it, the principle is to click on the \textit{iterate} button at the right time, i.e only once everything that's common to all the files that have to be processed has been set-up.
+
+Here is an example, step by step, to import several files and run the same linear model on all the imported trials.
+
+
+
+\section{Import / Import BLK File}
+
+Here, we will run the same \textit{process} as in Chapter~\ref{chapter:tuto1}, but using the \textit{iterate} function to set-up a loop. First, open the \textit{Import BLK File} window, and then:
+
+\begin{itemize}
+  \item DO NOT click on the file browser to select the \textit{input} file. This is what will be iterated.
+  \item Click on the red icon to select the \textit{subject}, and do it as described in Chapter~\ref{chapter:tuto1}, except change something so that the data ends up being imported in a different place (for instance, use \textit{protocol} = \texttt{protocol\_tutorial02} and/or \textit{subject} = \texttt{subject\_tutorial02});
+  \item Choose the file \textit{format} (compressed or uncompressed Nifti), sampling \textit{period}, \textit{temporal binning} and \textit{spatial binning} as previously.
+\end{itemize}
+
+At this point, everything that is common to all the files has been set-up, it is therefore time to click on the \textit{iterate} button.
+Here you find yourself in front of a new window with the same entries as before.
+Do not touch anything that you have just selected (even if not visible, it has already been set and will be used for all files).
+Your goal is to iterate (i.e loop) over data files, so open the file browser for \textit{input}; go to \texttt{/rawdatadirectory/vobi\_one\_demo\_data/raw\_blk\_data}, select all the files present in this directory and press Open.
+Validate the different windows by clicking OK twice (without changing anything) until you can Run the iteration process. This will import all files of this session. You will be able to follow the execution of all the processes, and, by clicking on one of them, you will be able to access its detailed inputs and ouputs, and eventually use the different viewers from there.
+
+
+
+\section{Session Pre-analysis / Create Conditions File}
+
+This process will create the Conditions File, a text file that summarizes the information about all trials that have been imported in the database for a given session.
+There is just one entry to fill up: click on the red icon and select the \textit{database}, \textit{protocol}, \textit{subject} and \textit{session\_date}; select the file in the right panel and run the process.
+Once the file has been created, you can visualize it by clicking on the eye icon. It contains the file name of all the imported files for this session, the experience number, the trial number, the experimental condition.
+The last column, which is by default filled with ones, allows to discard a trial if needed (for example because it is corrupted by large artefacts that prevent using it in further interpretation of the dataset); for now, in order to do so, you need to manually edit the \texttt{conditions.txt} file and replace this one by a zero.  In this tutorial, you can leave this column filled with ones.
+
+
+
+\section{Session Pre-analysis / Construct model}
+
+We will here use the same model parameters as in Chapter~\ref{chapter:tuto1}. Note two differences:
+
+\begin{itemize}
+  \item now that a previous model has already been run, you can use the green icon to select it from the database (or use the file browser to retrieve it as in Chapter~\ref{chapter:tuto1});
+  \item when defining the \textit{output}, make sure you use the parameters (\textit{database}, \textit{protocol}, \textit{subject} and \textit{session\_date}) for the current study and not the one from Chapter~\ref{chapter:tuto1}.
+\end{itemize}
+
+The model is now defined at the session level, and will therefore be available for all trials of this session.
+
+
+\section{Trial Analysis / LM Based Denoising / Apply Linear Model}
+
+We will iterate this process to fit the model for all trials that have just been imported.
+
+\begin{itemize}
+  \item Click on the green icon to select the \textit{glm} that you just created with the Construct model process;
+  \item Define your region of interest.
+\end{itemize}
+
+At this point, everything that is common to all the files has been set-up, it is therefore time to click on the \textit{iterate} button.
+Use the green icon to select the \textit{data} files from the database.
+Use the top left-panel to filter the results displayed in the top-right panel (select the (\textit{database}, \textit{protocol}, \textit{subject} and \textit{session\_date}), until only the raw data you have just imported can be selected. Proceed with your selection in the top-right panel, and click on Ok. Note that before running the iteration process, you can examine the individual processes by click on them; this is a good way to check that everything is set up correctly before launching a large amount of computation. Once you've checked that everything is OK, launch the iteration by clicking on the Run button.
+
+
+\section{Session Post-Analysis / Visualization of Trials variability}
+
+This process will create a figure displaying the set of all estimated single-trial denoised responses for the session we are currently working on, or for a subset of trials corresponding to a given list of specified experimental conditions.
+
+\begin{itemize}
+  \item Click on the green icon and select the Conditions File created previously, which corresponds to the desired session, by
+using the left panel as filters;
+  \item Choose the \textit{model} (the default is Linear Model, which is what we want here);
+  \item Select the \textit{analysis\_name} from the drop-down list (it should be the \textit{secondlevel\_analysis} you defined above);
+  \item Define the \textit{conditions\_list}, i.e the list of experimental conditions for which you want to see the results displayed; try it with [6] to only display the trials from condition 6, or with [1,2,3,4,5,6] to display the trials for these six conditions;
+  \item Define your region of interest as you now know how to do, and Run the process.
+\end{itemize}
+
+Once finished, click on the eye of the \textit{data\_graph}. You will see the averaged denoised response for each trial that belongs to the list of experimental conditions you chose, and their mean in red.
+
+\section{Session Post-Analysis / Comparison of ROIs}
+
+This process will create a figure displaying the average denoised responses in different regions of interest, for a given analysis and a chosen list of experimental conditions.
+
+\begin{itemize}
+  \item As in the previous process, select the Conditions File with the green icon, choose the \textit{model} type (Linear Model),  the \textit{analysis\_name} and the \textit{conditions\_list} (try it with [5,6] for instance);
+  \item Select the type for \textit{ROI\_1} (mandatory, because you need at least on region!): choose Binary mask, and select \texttt{v1center.nii} as previously;
+  \item If you now select the type for \textit{ROI\_2}, it will add another region to the analysis: choose Binary mask, and select \texttt{v1periphery.nii};
+  \item Now select the type of \textit{ROI\_3} as Rectangular ROI and set $corner0 = (125,250)$ and $corner1 = (200,300)$.
+\end{itemize}
+
+Now, launch the process, and visualize the resulting figure with the eye icon: you will see a comparison of the mean denoised responses for these three regions.
+
+

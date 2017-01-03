@@ -1,0 +1,23 @@
+In this tutorial, we will use the provided example script to run a standard analysis, the so-called {\em blank subtraction}.
+The script is also available in \texttt{/rawdatadirectory/vobi\_one\_demo\_data/example\_scripts}.
+
+
+
+\section{Running \texttt{script2\_blank\_subtraction.py}}
+
+This script performs all the steps needed to run a standard analysis, assuming the data has already been imported into
+the BrainVISA database and the Conditions File has already been created.
+
+The different steps consist in calling the following Vobi One processes:
+\begin{itemize}
+  \item Session Post-analysis / Average Trials, to average all the blank trials
+  \item Trial Analysis / Blank Based Denoising / Frame0 Division, to perform this on the average of blank trials
+  \item Trial Analysis / Blank Based Denoising / Frame0 Division, performed on each trial
+  \item Trial Analysis / Blank Based Denoising / Blank Subtraction, performed on each trial
+  \item Trial Analysis / Blank Based Denoising / Linear Detrend, performed on each trial
+\end{itemize}
+
+
+You need to edit the section of the script called "PARAMETERS TO BE DEFINED BY THE USER", and change the values of the same parameters as in the previous tutorials (the BrainVISA database root directory, the \textit{protocol} and \textit{subject}). Moreover, you need to define the time windows used to define the Frames0 (i.e frames before stimulus onset that will be used to define the baseline) and the Frames1 (i.e frames at the end of the trial when the signal is back to baseline level); these will be used for the Frame0 division and for the linear detrending operations. Once this is done, just type \texttt{\%run script2\_blank\_subtraction.py} in the BrainVISA python shell to launch the execution of the script.
+
+

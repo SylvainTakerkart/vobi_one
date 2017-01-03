@@ -1,0 +1,25 @@
+%% The {\em iterate} capability of BrainVISA makes it possible to repeat the same operation on numerous files.
+%% This tutorial aims at demonstrating how to use it by i) importing all the files of a given session, and ii) running the same linear model on these trials.
+%% In all {\em processes}, the \textit{iterate} button is present next to the \textit{run} button. In order to use it, the principle is to click on the \textit{iterate} button at the right time, i.e only once everything that's common to all the files that have to be processed has been set-up.
+
+%% Here is an example, step by step, to import several files and run the same linear model on all the imported trials.
+
+You have now fully processed the same dataset with two different methods, the linear model and the blank subtraction framework. We will here use a process that allows comparing the results obtained with these two methods.
+
+
+\section{Session Post-Analysis / Comparison of analyses}
+
+This process will create a figure displaying the average denoised responses in a single region of interest, for different analyses, or different options of the same type of analyses, or a different set of experimental conditions, or even data acquired in different sessions or on different days. In this tutorial, we will use the same set of experimental conditions with the two analysis methods that were ran in the previous tutorials.
+
+
+\begin{itemize}
+  \item First start by defining the common ROI: for instance choose Binary mask for the type of ROI, and select the \texttt{v1center.nii} file;
+  \item Select the first type of analysis (\textit{model\_1}) by clicking \textit{Change to add a new analysis}; select \textit{Linear model (GLM)} from the drop-down list
+  \item Select the \textit{conditions\_file} with the green icon
+  \item Select the \textit{analysis\_name} that you chose when running the linear model, and the \textit{conditions\_list} (try it with [5,6] for instance);
+  \item Now repeat the same thing for the second type of analysis (\textit{model\_2}): click on \textit{Change to add a new analysis}: select \textit{Blank subtraction + Detreding (BkSD)} from the drop-down list
+  \item Select same \textit{conditions\_file} as above
+  \item Select the \textit{analysis\_name} that you chose when running the blank subtraction, and the same \textit{conditions\_list} as above.
+\end{itemize}
+
+Now, launch the process, and visualize the resulting figure with the eye icon: you will see a comparison of the mean denoised responses for given condition list between the two types of analyses. Note that you could have added more types of analyses.

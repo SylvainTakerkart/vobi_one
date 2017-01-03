@@ -1,0 +1,87 @@
+This is the easiest tutorial which only uses the Graphical User Interface (GUI) of {\em Vobi One}, as integrated in the main BrainVISA interface. Each of the following steps correspond to launching one of the processes available in {\em Vobi One}.
+
+
+\section{Import / Import BLK File}
+
+This process imports the data of a trial stored in BLK format into the BrainVISA database, and converts it to a Nifti file. Open the process and follow these instructions:
+
+\begin{itemize}
+  \item Click on the file browser to select the \textit{input} file. Choose the BLK file which is in the \\
+    \texttt{/rawdatadirectory/vobi\_one\_demo\_data/single\_blk\_file} directory.
+  \item Click on the red icon to select the \textit{subject}, and then:
+    \begin{itemize}
+      \item in the top-left panel, use the filter on attributes to choose the \textit{database} that you previously defined by selecting it in the available drop-down list
+      \item you do not need to specify anything for \textit{Data type} and \textit{File format} entries
+      \item define the \textit{protocol} name by directly typing in the textfield (for instance: \texttt{protocol\_tutorial01})
+      \item define the \textit{subject} name by directly typing in the textfield (for instance: \texttt{subject\_tutorial01})
+      \item a single entry should appear in the top-right panel; to choose it, select it (single click) and press OK (bottom-right); or you can also double click on it;
+    \end{itemize}
+  \item Choose the file \textit{format} (compressed or uncompressed Nifti); use uncompress for now;
+  \item For now, you can leave the default values for sampling \textit{period}, \textit{temporal binning} and \textit{spatial binning}.
+\end{itemize}
+
+You will see that the \textit{ouput} file name is automatically defined from the choice you have made. Now you can simply click \textit{Run} to launch the process. The file will be imported in the BrainVISA database and stored at a precise location in the directory architecture.
+
+
+\section{Session Pre-analysis / Construct model}
+
+This process constructs all the regressors that will be used in the multiple regression, i.e it builds the linear model that will be used to fit the data. Here, we will use a set of parameters that are given in a file that comes with the demo data. Here is a short description of the parameters
+
+The parameters that define the models are :
+\begin{itemize}
+   \item the \textit{sampling frequency}, in Hertz, after importing (do not forget to take into account the temporal binning used when importing the data);
+   \item the \textit{trial duration}, in seconds;
+   \item the value of \textit{tau} : dye-bleaching time constant, in seconds;
+   \item the \textit{frequencies}, in Hertz, of the oscillatory noise components you want to model;
+   \item the \textit{Fourier orders}, i.e the number of harmonics of the Fourier serier used to model each oscillatory noise components; the length of this vector should be equal to the number of {frequencies} listed above;
+   \item $L$ is the number of regressors that will be used to model the shape of the response and its potential variations, which are defined by the alpha parameters below
+   \item alpha-min[sec] : minimum values for the alpha parameters (see Chapter~\ref{chapter:tuto3} for their definition)
+   \item alpha-max[sec] : maximum values for the alpha parameters
+       The sum of the first six values should be lower than the trial duration.
+       The seventh and eighth values are expressed relative amplitude with respect to 1.
+\end{itemize}
+
+Now, let's open the process window itself.
+
+\begin{itemize}
+  \item Click on the file browser (and not the green icon) to select the \textit{parameters}. Choose the \texttt{param.npz} file which is in the \texttt{/rawdatadirectory/vobi\_one\_demo\_data/lm\_parameters} directory. This will fill in all the parameters that define the model.
+  \item Click on the red icon to select the \textit{output}, and then:
+    \begin{itemize}
+      \item select the \textit{database}, \textit{protocol}, \textit{subject} and \textit{session\_date} from the corresponding drop-down lists (with the same values you defined when importing the data);
+      \item define the \textit{secondlevel\_analysis} name by directly typing in the textfield (for instance: \texttt{\_model1})
+      \item a new entry should appear in the top right panel; select it;
+    \end{itemize}
+  \item Click \textit{Run} to launch the process.
+\end{itemize}
+
+Once the process is finished, you can visualize a summary of the model by clicking on the eye icon on the \textit{output} line. In particular, the bottom figure displays some representative example shapes that can be taken by the neural response using this model. Click once again on the eye icon to make the figure disappear.
+
+\section{Trial Analysis / LM Based Denoising / Apply Linear Model}
+
+This process fits the linear model to a given trial. It estimates the model parameters for the timeseries at each pixel of the image, and produces a graph to display the result of this estimation.
+
+\begin{itemize}
+  \item Click on the green icon to select the \textit{glm}. Either you can select it from the list of available \textit{OI GLM Design Matrix} entries in the top right panel (for now, it is the easiest way since only one should be there; just double click on it!); or, if a lot of them are availeable, you can use the top left panel to filter what appears in the top right panel, by choosing the  \textit{database}, \textit{protocol}, \textit{subject}, \textit{session\_date} and finally \textit{secondlevel\_analysis};
+  \item Click on the green icon to select your input \textit{data} file, and use the same filtering strategy before only one \textit{OI Raw Imported Data} file appears in the top right panel;
+  \item Choose the \textit{format} file of your output data (NIFTI-1 image by default, but it can be compressed; it is recommended to keep the same one all along an analysis)
+  \item Choose the region of interest (\textit{ROI}) for which a figure will be generated, presenting the components of the estimated model averaged on all pixels of this region. You can specify your \textit{ROI} in two ways:
+
+   \begin{itemize}
+     \item as a \textit{Rectangular ROI (from coordinates)}; in that case you have to specify the (x,y) coordinates of the bottom-left  corner (\textit{corner0}) and the top-right corner (\textit{corner1}) of the rectangle; try it with $corner0 = (125,250)$ and $corner1 = (200,300)$;
+     \item as a \textit{Binary mask (from image)}; in that case you need to specify a Nifti image which is a binary mask of your region of interest (1 within the ROI, 0 outside); this mask need to have the same size as your data; try it by choosing, with the file browser (and not the green icon) the mask \\
+     \texttt{/rawdatadirectory/vobi\_one\_demo\_data/roi\_masks/region1.nii}.
+   \end{itemize}
+
+\end{itemize}
+
+%At this point, you can launch the process. However, it can also produce an output graphical visualization of the estimated model, averaged in a region of interest. If you do not specifiy the \textit{ROI}, it will be computed on the full image, which is often meaningless. Define your ROI as a \textit{Rectangular ROI (from coordinates)}; in that case you have to specify the (x,y) coordinates of the bottom-left corner (\textit{corner0}) and the top-right corner (\textit{corner1}) of the rectangle; try it with $corner0 = (125,250)$ and $corner1 = (200,300)$.
+
+%You can specify your \textit{ROI} in two ways:
+
+%% \begin{itemize}
+%%   \item as a \textit{Rectangular ROI (from coordinates)}; in that case you have to specify the (x,y) coordinates of the bottom-left corner (\textit{corner0}) and the top-right corner (\textit{corner1}) of the rectangle; try it with $corner0 = (125,250)$ and $corner1 = (200,300)$;
+%%   \item as a \textit{Binary mask (from image)}; in that case you need to specify a Nifti image which is a binary mask of your region of interest (1 within the ROI, 0 outside); this mask need to have the same size as your data; try it by choosing, with the file browser (and not the green icon) the mask \\
+%%  \texttt{/rawdatadirectory/vobi\_one\_demo\_data/roi\_masks/region1.nii}.
+%% \end{itemize}
+
+Once you have run the process, you can visualize this \textit{data\_graph} (use the eye icon) to check whether the model you have defined fits the data correctly in this region of interest.
